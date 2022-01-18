@@ -14,8 +14,8 @@ import org.apache.hadoop.mapreduce.Reducer;
 public class NumSumReducer extends Reducer<NullWritable, IntWritable, NullWritable, IntWritable> {
 
 
-int somme = 0;
-public void reduce(Text key,Iterable<IntWritable> values,Context context) throws IOException, InterruptedException{
+int somme =0;
+public void reduce(NullWritable key,Iterable<IntWritable> values,Context context) throws IOException, InterruptedException{
     
 	int sum = 0;
     for(IntWritable x : values){
