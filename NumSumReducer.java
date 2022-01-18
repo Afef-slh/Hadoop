@@ -27,7 +27,7 @@ public void reduce(NullWritable key,Iterable<IntWritable> values,Context context
     
 @Override
 protected void cleanup(Context context) throws IOException, InterruptedException {
-	System.out.print("le somme de likes est: "+ somme );
-    context.write(NullWritable.get(), new IntWritable(somme));
+	System.out.print("le somme de likes est: "+ sum );
+    context.write(NullWritable.get(), new IntWritable(sum));
 }
 }
