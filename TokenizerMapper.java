@@ -18,7 +18,7 @@ public void map(LongWritable key, Text value, Context context
 	String[] data=line.split(",");
 	try {
 		
-		int nbre_max = Integer.parseInt(data[8]);	
+		int nbre_max = Integer.parseInt(data[9]);	
 		
 		context.write(NullWritable.get(),new IntWritable(nbre_max));
 			
