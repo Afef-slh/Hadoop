@@ -13,7 +13,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 public class NumSumReducer extends Reducer<NullWritable, IntWritable, NullWritable, IntWritable> {
 
-
+private IntWritable result = new IntWritable();
 
 public void reduce(NullWritable key,Iterable<IntWritable> values,Context context) throws IOException, InterruptedException{
     
@@ -21,13 +21,14 @@ public void reduce(NullWritable key,Iterable<IntWritable> values,Context context
     for(IntWritable x : values){
     	sum+= x.get();
         }
-    
+	System.out.print("le somme de likes est: "+ sum );
+    result.set(sum);
     	
     }
     
 @Override
 protected void cleanup(Context context) throws IOException, InterruptedException {
-	System.out.print("le somme de likes est: "+ sum );
-    context.write(NullWritable.get(), new IntWritable(sum));
+	
+    context.write(NullWritable.get(), result);
 }
 }
