@@ -21,7 +21,7 @@ public class Main {
         job.setJarByClass(Main.class);
         job.setMapperClass(TokenizerMapper.class);
         job.setReducerClass(NumSumReducer.class);
-        job.setOutputKeyClass(Text.class);
+        job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(IntWritable.class);
         Path inputFilePath = new Path(args[0]);
         Path outputFilePath = new Path(args[1]);
